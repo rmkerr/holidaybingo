@@ -15,7 +15,9 @@ function shuffleArray(array: any) {
 
 export default function Home() {
   shuffleArray(squares);
-  const selected = squares.slice(0, 25);
+  let squaresCopy = [...squares];
+  squaresCopy[12] = "Free Space";
+  const selected = squaresCopy.slice(0, 25);
   return (
     <div className="container mx-auto bg-slate-50 p-4 drop-shadow">
       <div className="w-full text-7xl my-4">
@@ -26,8 +28,8 @@ export default function Home() {
       <div className="grid grid-cols-5 border border-green-600 rounded-sm">
         {selected.map((element) => {
           return (
-            <div className="grow aspect-square text-center border border-green-600 py-12 px-4">
-              <span className="">{element}</span>
+            <div className="grow aspect-square text-center border border-green-600 p-4">
+              <span className="print:text-sm">{element}</span>
             </div>
           );
         })}
