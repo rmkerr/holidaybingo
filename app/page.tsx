@@ -35,13 +35,13 @@ export default function Home() {
   };
 
   return (
-    <div className="container mx-auto bg-slate-50 p-4 drop-shadow">
-      <div className="w-full text-7xl my-4">
-        <h1 className={"text-center " + mountains.className}>
+    <div className="mx-auto max-w-5xl bg-slate-50/95 px-3 py-4 sm:px-6 sm:py-6 drop-shadow rounded-lg">
+      <div className="w-full text-center text-4xl sm:text-6xl lg:text-7xl my-4 leading-tight">
+        <h1 className={mountains.className}>
           Christmas Movie Bingo
         </h1>
       </div>
-      <div className="grid grid-cols-5 border border-green-600 rounded-sm">
+      <div className="grid grid-cols-5 border border-green-600 rounded-md overflow-hidden bg-white">
         {selected.map((element, index) => {
           return (
             <button
@@ -49,11 +49,11 @@ export default function Home() {
               key={`${element}-${index}`}
               onClick={() => toggleSquare(index)}
               aria-pressed={markedSquares.has(index)}
-              className="relative flex items-center justify-center aspect-square text-center border border-green-600 p-4 hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700 transition-colors"
+              className="relative flex items-center justify-center aspect-square text-center border border-green-600 p-2 sm:p-3 lg:p-4 text-xs sm:text-sm md:text-base leading-snug hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700 transition-colors"
             >
               <span className="print:text-sm">{element}</span>
               {markedSquares.has(index) && (
-                <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-red-600 text-8xl font-black leading-none print:hidden select-none">
+                <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-red-600 text-6xl sm:text-7xl md:text-8xl font-black leading-none print:hidden select-none">
                   ×
                 </span>
               )}
