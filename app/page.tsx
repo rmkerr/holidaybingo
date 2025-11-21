@@ -51,7 +51,7 @@ export default function Home() {
               aria-pressed={markedSquares.has(index)}
               className="relative flex items-center justify-center aspect-square text-center border border-green-600 p-2 sm:p-3 lg:p-4 text-xs sm:text-sm md:text-base leading-snug hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700 transition-colors overflow-hidden"
             >
-              <span className="print:text-sm line-clamp-4 leading-tight px-1">
+              <span className="print:text-sm line-clamp-6 leading-tight px-1">
                 {element}
               </span>
               {markedSquares.has(index) && (
