@@ -1,3 +1,6 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import squares from "./list";
 import { Mountains_of_Christmas } from "next/font/google";
 
@@ -14,10 +17,23 @@ function shuffleArray(array: any) {
 }
 
 export default function Home() {
-  shuffleArray(squares);
-  let squaresCopy = [...squares];
-  squaresCopy[12] = "Free Space";
-  const selected = squaresCopy.slice(0, 25);
+  const selected = useMemo(() => {
+    const shuffledSquares = [...squares];
+    shuffleArray(shuffledSquares);
+    shuffledSquares[12] = "Free Space";
+    return shuffledSquares.slice(0, 25);
+  }, []);
+
+  const [markedSquares, setMarkedSquares] = useState<Set<number>>(new Set());
+
+  const toggleSquare = (index: number) => {
+    setMarkedSquares((previous) => {
+      const nextMarks = new Set(previous);
+      nextMarks.has(index) ? nextMarks.delete(index) : nextMarks.add(index);
+      return nextMarks;
+    });
+  };
+
   return (
     <div className="container mx-auto bg-slate-50 p-4 drop-shadow">
       <div className="w-full text-7xl my-4">
@@ -28,12 +44,20 @@ export default function Home() {
       <div className="grid grid-cols-5 border border-green-600 rounded-sm">
         {selected.map((element, index) => {
           return (
-            <div
+            <button
+              type="button"
               key={`${element}-${index}`}
-              className="grow aspect-square text-center border border-green-600 p-4"
+              onClick={() => toggleSquare(index)}
+              aria-pressed={markedSquares.has(index)}
+              className="relative flex items-center justify-center aspect-square text-center border border-green-600 p-4 hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700 transition-colors"
             >
               <span className="print:text-sm">{element}</span>
-            </div>
+              {markedSquares.has(index) && (
+                <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-red-600 text-8xl font-black leading-none print:hidden select-none">
+                  ×
+                </span>
+              )}
+            </button>
           );
         })}
       </div>
