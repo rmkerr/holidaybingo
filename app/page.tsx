@@ -26,9 +26,12 @@ export default function Home() {
         </h1>
       </div>
       <div className="grid grid-cols-5 border border-green-600 rounded-sm">
-        {selected.map((element) => {
+        {selected.map((element, index) => {
           return (
-            <div className="grow aspect-square text-center border border-green-600 p-4">
+            <div
+              key={`${element}-${index}`}
+              className="grow aspect-square text-center border border-green-600 p-4"
+            >
               <span className="print:text-sm">{element}</span>
             </div>
           );

@@ -89,6 +89,7 @@ let squares = [
     "peppermint/candy cane",
     "an obvious villain",
     "main character doesn't get along with the love interest at first",
+    "the love interest reads to children",
     // "a knowing look",
 ]
 
