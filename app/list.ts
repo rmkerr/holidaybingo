@@ -59,7 +59,7 @@ let squares = [
     "love interests seeing each other all dressed up",
     "someone living in a home they probably can't afford",
     "someone misunderstands a situation",
-    "you can name another Christmas movie one of the leads has been in",
+    "name another movie one of the leads has been in",
     "amnesia",
     "talking about the meaning of Christmas",
     "something clumsy happens",
@@ -88,7 +88,7 @@ let squares = [
     "nutcracker",
     "peppermint/candy cane",
     "an obvious villain",
-    "main character doesn't get along with the love interest at first",
+    "love interests don't get along at first",
     "the love interest reads to children",
     // "a knowing look",
 ]
