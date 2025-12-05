@@ -91,6 +91,10 @@ let squares = [
     "love interests don't get along at first",
     "the love interest reads to children",
     "a nepo baby",
+    "product placement",
+    "a santa hat",
+    "it starts to snow",
+    "holding or drinking out of an empty cup"
     // "a knowing look",
 ]
 
